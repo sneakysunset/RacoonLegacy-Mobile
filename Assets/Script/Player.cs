@@ -33,6 +33,14 @@ public class Player : MonoBehaviour
         romba.direction = transform.right;
         OnIterationOver.AddListener(() => FindObjectOfType<RombaManager>().AddNewRomba(romba, this));
     }
+    
+    public void OnNewIteration()
+    {
+        transform.right = (target.position - transform.position).normalized;
+        romba = new Romba();
+        romba.position = transform.position;
+        romba.direction = transform.right;
+    }
 
     private void Update()
     {
