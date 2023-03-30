@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8081185858152830113}
   - component: {fileID: 8081185858152830118}
   - component: {fileID: 675846760567386229}
+  - component: {fileID: 8754670440845380856}
   m_Layer: 0
   m_Name: Romba
   m_TagString: Romba
@@ -48,7 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5519181b069ce4458975b23d3bc33fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   speed: 150
+  isActivated: 1
 --- !u!33 &8081185858152830112
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -107,7 +110,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8081185858152830116}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -136,3 +139,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!58 &8754670440845380856
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081185858152830116}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6

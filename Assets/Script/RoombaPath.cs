@@ -7,6 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class RoombaPath : MonoBehaviour
 {
     [HideInInspector] public Vector3 destination;
+    
     [HideInInspector] public Vector3 originalPos;
 
     [HideInInspector] public Vector3 prevPos;

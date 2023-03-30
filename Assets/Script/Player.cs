@@ -17,13 +17,13 @@ public struct Romba
 public class Player : MonoBehaviour
 {
     public Transform target;
-    private Rigidbody2D rb;
+    [HideInInspector] public Rigidbody2D rb;
     public float speed;
     public UnityEvent OnIterationOver;
     public UnityEvent OnGameOver;
     public Romba romba;
-    private float timer = 0;
-
+    public bool isActivated = true;
+    private RombaManager rMan;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,35 +31,40 @@ public class Player : MonoBehaviour
         romba = new Romba();
         romba.position = transform.position;
         romba.direction = transform.right;
-        OnIterationOver.AddListener(() => FindObjectOfType<RombaManager>().AddNewRomba(romba, this));
+        rMan = FindObjectOfType<RombaManager>();
+        OnIterationOver.AddListener(() => rMan.AddNewRomba(romba, this));
     }
-    
+
     public void OnNewIteration()
     {
+        isActivated = true;
         transform.right = (target.position - transform.position).normalized;
         romba = new Romba();
         romba.position = transform.position;
         romba.direction = transform.right;
     }
 
-    private void Update()
-    {
-        timer += Time.deltaTime;
-    }
-
 
     void FixedUpdate()
     {
-        rb.velocity = transform.right * speed * Time.deltaTime ;
-        rb.angularVelocity = 0;
+        if (isActivated)
+        {
+            rb.velocity = transform.right * speed * Time.deltaTime;
+            rb.angularVelocity = 0;
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Wall"))
+        if (collision.collider.CompareTag("Wall") || collision.collider.CompareTag("OldWall"))
         {
             transform.right = Vector2.Reflect(transform.right, collision.contacts[0].normal);
-            romba.direction = transform.right;
+            
         }
         else if (collision.collider.CompareTag("Target"))
         {
@@ -68,6 +73,7 @@ public class Player : MonoBehaviour
         else if (collision.collider.CompareTag("Romba"))
         {
             OnGameOver?.Invoke();
+            StartCoroutine(rMan.StartIteration(this, false));
         }
     }
 }
