@@ -32,7 +32,7 @@ public class rombaBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Wall"))
+        if (collision.collider.CompareTag("Wall") || collision.collider.CompareTag("Romba"))
         {
             transform.right = Vector2.Reflect(transform.right, collision.contacts[0].normal);
 
