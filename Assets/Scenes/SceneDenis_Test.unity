@@ -3076,6 +3076,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9210218140918835728, guid: d61f475af0537014eaa052b83816a0e9,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210218140918835728, guid: d61f475af0537014eaa052b83816a0e9,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210218140918835728, guid: d61f475af0537014eaa052b83816a0e9,
+        type: 3}
+      propertyPath: NoiseModule.octaves
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210218140918835728, guid: d61f475af0537014eaa052b83816a0e9,
+        type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210218140918835728, guid: d61f475af0537014eaa052b83816a0e9,
+        type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210218140918835728, guid: d61f475af0537014eaa052b83816a0e9,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210218140918835728, guid: d61f475af0537014eaa052b83816a0e9,
+        type: 3}
+      propertyPath: NoiseModule.scrollSpeed.scalar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9210218140918835729, guid: d61f475af0537014eaa052b83816a0e9,
         type: 3}
       propertyPath: m_RootOrder
@@ -3084,7 +3119,7 @@ PrefabInstance:
     - target: {fileID: 9210218140918835729, guid: d61f475af0537014eaa052b83816a0e9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.5
+      value: -37.48
       objectReference: {fileID: 0}
     - target: {fileID: 9210218140918835729, guid: d61f475af0537014eaa052b83816a0e9,
         type: 3}
