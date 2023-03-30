@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a42380125f6ea6f44a50fa9c8e9b072b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Fruit Days
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c16f6ec79caf9f940ad39e9be5337270, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
