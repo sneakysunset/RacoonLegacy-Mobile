@@ -25,8 +25,11 @@ public class Player : MonoBehaviour
     public bool isActivated = true;
     private RombaManager rMan;
     [HideInInspector] public Animator anim;
+    [HideInInspector] public List<path> paths;
+    float timer;
     void Start()
     {
+        paths = new List<path>();
         rb = GetComponent<Rigidbody2D>();
         transform.right = (target.position - transform.position).normalized;
         romba = new Romba();
@@ -35,6 +38,10 @@ public class Player : MonoBehaviour
         rMan = FindObjectOfType<RombaManager>();
         OnIterationOver.AddListener(() => rMan.AddNewRomba(romba, this));
         anim = GetComponentInChildren<Animator>();
+        var p = new path();
+        p.pathPoint = (Vector2)transform.position;
+        p.time = 0;
+        paths.Add(p);
     }
 
     public void OnNewIteration()
@@ -44,11 +51,18 @@ public class Player : MonoBehaviour
         romba = new Romba();
         romba.position = transform.position;
         romba.direction = transform.right;
+        timer = 0;
+        paths = new List<path>();
+        var p = new path();
+        p.pathPoint = (Vector2)transform.position;
+        p.time = 0;
+        paths.Add(p);
     }
 
 
     void FixedUpdate()
     {
+        timer += Time.deltaTime;
         if (isActivated)
         {
             anim.Play("Walk", 0);
@@ -75,10 +89,20 @@ public class Player : MonoBehaviour
         if (collision.collider.CompareTag("Wall") || collision.collider.CompareTag("OldWall"))
         {
             transform.right = Vector2.Reflect(transform.right, collision.contacts[0].normal);
+            var p = new path();
+            p.pathPoint = transform.position;
+            p.time = timer;
+            paths.Add(p);
+            timer = 0;
             
         }
         else if (collision.collider.CompareTag("Target"))
         {
+            var p = new path();
+            p.pathPoint = transform.position;
+            p.time = timer;
+            paths.Add(p);
+            timer = 0;
             OnIterationOver?.Invoke();
         }
         else if (collision.collider.CompareTag("Romba"))

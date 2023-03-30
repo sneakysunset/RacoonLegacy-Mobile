@@ -31,7 +31,9 @@ public class RombaManager : MonoBehaviour
         r.romb.rMan = this;
         r.romb.rb = r.romb.transform.GetComponent<Rigidbody2D>();
         rombas.Add(r);
+        r.romb.paths = player.paths ;
         
+        print(r.romb.paths.Count + " " + player.paths.Count);
 
 
         StartCoroutine(StartIteration(player, true));
@@ -48,6 +50,7 @@ public class RombaManager : MonoBehaviour
         {
             r2.romb.isActivated = false;
             r2.romb.gameObject.SetActive(false);
+            r2.romb.pathIndex = 0;
         }
 
         player.target.transform.position = iterations[iterationIndex].destination;
@@ -70,6 +73,11 @@ public class RombaManager : MonoBehaviour
             r2.romb.transform.right = r2.direction;
             r2.romb.gameObject.SetActive(true);
         }
+        foreach(GameObject wall in walls)
+        {
+            wall.tag = "OldWall";
+            Destroy(wall.gameObject);
+        }
         startIteration = false;
         player.transform.right = iterations[iterationIndex].destination - player.transform.position;
         yield return new WaitUntil(() => startIteration == true);
@@ -77,10 +85,8 @@ public class RombaManager : MonoBehaviour
         {
             r2.romb.isActivated = true;
         }
-        foreach(GameObject wall in walls)
-        {
-            wall.tag = "OldWall";
-        }
+        walls.Clear();
+
         player.OnNewIteration();
     }
 

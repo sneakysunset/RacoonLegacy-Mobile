@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8081185858152830118}
   - component: {fileID: 675846760567386229}
   - component: {fileID: 8754670440845380856}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Romba
   m_TagString: Romba
   m_Icon: {fileID: 0}
@@ -49,9 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  speed: 150
   isActivated: 1
   rMan: {fileID: 0}
+  paths: []
+  pathIndex: 0
 --- !u!50 &8081185858152830118
 Rigidbody2D:
   serializedVersion: 4

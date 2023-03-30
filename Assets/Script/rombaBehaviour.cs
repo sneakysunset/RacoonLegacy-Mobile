@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+
+[System.Serializable]
+public struct path
+{
+    public float time;
+    public Vector2 pathPoint;
+}
+
 public class rombaBehaviour : MonoBehaviour
 {
     public Romba romba;
-    private int index;
     [HideInInspector] public Rigidbody2D rb;
-    public float speed = 5;
+    float timer;
     public bool isActivated = true;
     [HideInInspector] public RombaManager rMan;
+    [HideInInspector] public List<path> paths;
+    [HideInInspector] public int pathIndex;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,10 +27,25 @@ public class rombaBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(timer > paths[pathIndex + 1].time)
+        {
+            if(pathIndex >= paths.Count - 2)
+            {
+                isActivated = false;
+                timer = 0;
+                pathIndex = 0;
+            }
+            else
+            {
+                pathIndex++;
+                timer = 0;
+            }
+           
+        }
         if(isActivated)
         {
-            rb.velocity = transform.right * speed * Time.deltaTime;
-            rb.angularVelocity = 0; 
+            timer += Time.deltaTime;
+            transform.position = Vector2.Lerp(paths[pathIndex].pathPoint, paths[pathIndex + 1].pathPoint, timer / paths[pathIndex + 1].time);
         }
         else
         {
