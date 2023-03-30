@@ -81,18 +81,18 @@ MonoBehaviour:
     m_Bits: 2147483647
   outlineSettings:
     outlineColor: {r: 0, g: 0, b: 0, a: 1}
-    outlineScale: 2.2
-    depthThreshold: 14.7
-    robertsCrossMultiplier: 326
-    normalThreshold: 0.4
-    steepAngleThreshold: 0
+    outlineScale: 3.2
+    depthThreshold: 11
+    robertsCrossMultiplier: 500
+    normalThreshold: 0.65
+    steepAngleThreshold: 1.02
     steepAngleMultiplier: 0
   viewSpaceNormalsTextureSettings:
     colorFormat: 0
-    depthBufferBits: -87
+    depthBufferBits: 33
     filterMode: 0
     backgroundColor: {r: 0, g: 0, b: 0, a: 1}
-    perObjectData: 0
+    perObjectData: -1
     enableDynamicBatching: 0
     enableInstancing: 0
 --- !u!114 &8895127899310300378
@@ -112,9 +112,9 @@ MonoBehaviour:
   m_Settings:
     Downsample: 1
     AfterOpaque: 1
-    Source: 1
+    Source: 0
     NormalSamples: 1
-    Intensity: 4.75
+    Intensity: 11.34
     DirectLightingStrength: 0.228
-    Radius: 0.12
+    Radius: 0.16
     SampleCount: 5
