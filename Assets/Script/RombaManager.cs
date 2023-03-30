@@ -17,7 +17,7 @@ public class RombaManager : MonoBehaviour
     [SerializeField] public int pathNum;
     public RoombaPath roombaPathPrefab;
     public float resetPlayerMovementSpeed;
-    bool startIteration;
+    /*[HideInInspector]*/ public bool startIteration;
     private void Start()
     {
         rombas = new List<Romba>();
@@ -28,7 +28,7 @@ public class RombaManager : MonoBehaviour
         r.romb = Instantiate (romba, r.position, Quaternion.identity);
         r.romb.transform.right = r.direction;
         r.romb.romba = r;
-        r.romb.rMan = this ;
+        r.romb.rMan = this;
         r.romb.rb = r.romb.transform.GetComponent<Rigidbody2D>();
         rombas.Add(r);
         
@@ -71,6 +71,7 @@ public class RombaManager : MonoBehaviour
             r2.romb.gameObject.SetActive(true);
         }
         startIteration = false;
+        player.transform.right = iterations[iterationIndex].destination - player.transform.position;
         yield return new WaitUntil(() => startIteration == true);
         foreach (Romba r2 in rombas)
         {

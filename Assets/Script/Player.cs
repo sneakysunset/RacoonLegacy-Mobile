@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public Romba romba;
     public bool isActivated = true;
     private RombaManager rMan;
+    [HideInInspector] public Animator anim;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
         romba.direction = transform.right;
         rMan = FindObjectOfType<RombaManager>();
         OnIterationOver.AddListener(() => rMan.AddNewRomba(romba, this));
+        anim = GetComponentInChildren<Animator>();
     }
 
     public void OnNewIteration()
@@ -49,11 +51,20 @@ public class Player : MonoBehaviour
     {
         if (isActivated)
         {
+            anim.Play("Walk", 0);
             rb.velocity = transform.right * speed * Time.deltaTime;
             rb.angularVelocity = 0;
         }
         else
         {
+            if (rMan.startIteration)
+            {
+                anim.Play("Run", 0);
+            }
+            else
+            {
+                anim.Play("Idle", 0);
+            }
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0;
         }
