@@ -6,7 +6,7 @@ public class ScreenBounds : MonoBehaviour
 {
     public Transform bottomLeft;
     public Transform topRight;
-
+    public LayerMask touchLayer;
     private void Start()
     {
         SetUpBoundaries();
@@ -17,13 +17,11 @@ public class ScreenBounds : MonoBehaviour
         Vector3 point = new Vector3();
 
         //topright
-        point = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        point.z = 0;
+        point = UtilsMouse.GetMousePosition(new Vector2(Screen.width, Screen.height), touchLayer);
         topRight.position = point;
 
         //bottomleft
-        point = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
-        point.z = 0;
+        point = UtilsMouse.GetMousePosition(new Vector2(0, 0), touchLayer);
         bottomLeft.position = point;
     }
 }

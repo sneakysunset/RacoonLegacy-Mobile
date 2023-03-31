@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8612303f-4e27-416a-9d67-954238cebc37}">
+		<property name="assetPath">
+			<value>Explosion sound effect.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>16.039183673469388</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1c7ea594-1d6a-483d-af57-4896bf749eef}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -15,14 +15,22 @@ public class rombaBehaviour : MonoBehaviour
 {
     public Romba romba;
     [HideInInspector] public Rigidbody2D rb;
-    float timer;
+    [HideInInspector] public float timer;
     public bool isActivated = true;
     [HideInInspector] public RombaManager rMan;
     [HideInInspector] public List<path> paths;
     [HideInInspector] public int pathIndex;
+    public ParticleSystem pSys;
+    MeshRenderer meshR;
+    Light lightR;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        transform.right = paths[pathIndex].pathPoint - paths[pathIndex + 1].pathPoint;
+        meshR = GetComponentInChildren<MeshRenderer>();
+        lightR = GetComponentInChildren<Light>();
+        lightR.color = new Color(Random.Range(.6f, 1), Random.Range(.6f, 1), Random.Range(.6f, 1));
+
     }
 
     void FixedUpdate()
@@ -39,6 +47,7 @@ public class rombaBehaviour : MonoBehaviour
             {
                 pathIndex++;
                 timer = 0;
+                transform.right = paths[pathIndex].pathPoint - paths[pathIndex + 1].pathPoint;
             }
            
         }
@@ -50,13 +59,49 @@ public class rombaBehaviour : MonoBehaviour
         else
         {
             rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0;
+            //rb.angularVelocity = 0;
         }
+    }
+
+
+    public void OnEndIteration()
+    {
+        StartCoroutine(disableRoomba());
+        isActivated = false;
+        pathIndex = 0;
+        timer = 0;
+        pSys.Play();
+    }
+
+    public void OnStartLoop(Romba r2)
+    {
+        transform.position = r2.position;
+        transform.right = paths[pathIndex].pathPoint - paths[pathIndex + 1].pathPoint;
+        meshR.enabled = true;
+        lightR.enabled = true;
+    }
+
+    IEnumerator disableRoomba()
+    {
+        yield return new WaitForSeconds(.5f);
+
+        meshR.enabled = false;
+        lightR.enabled = false;
+        pSys.gameObject.SetActive(true);
+
+    }
+
+    public void OnStartIteration(Romba r2)
+    {
+        transform.position = r2.position;
+        transform.right = paths[pathIndex].pathPoint - paths[pathIndex + 1].pathPoint;
+        meshR.enabled = true;
+        lightR.enabled = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Wall") || collision.collider.CompareTag("Romba"))
+        if (collision.collider.CompareTag("Romba"))
         {
             transform.right = Vector2.Reflect(transform.right, collision.contacts[0].normal);
 
@@ -65,24 +110,11 @@ public class rombaBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("OldWall"))
+        if (other.CompareTag("Wall"))
         {
-            rMan.walls.Remove(this.gameObject);
-            Destroy(other.gameObject);
+            //rMan.walls.Remove(other.gameObject);
+            //Destroy(other.gameObject);
+            //FMODUnity.RuntimeManager.PlayOneShot("event:/Wall/Collider_Wall");
         }
     }
-
-    /*    private void Update()
-        {
-            timer += Time.deltaTime;
-            if(index < romba.directions.Count - 1)
-            {
-                transform.position = Vector2.Lerp(romba.directions[index].position, romba.directions[index + 1].position, timer /romba.directions[index + 1].time);
-                if(timer >= romba.directions[index + 1].time)
-                {
-                    index++;
-                    timer = 0;
-                }
-            }
-        }*/
 }

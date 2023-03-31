@@ -44,11 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07790a566a424d74db9080dc32020ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iterations:
-  - startPos: {fileID: 0}
-    Target: {fileID: 0}
-  - startPos: {fileID: 0}
-    Target: {fileID: 0}
-  - startPos: {fileID: 0}
-    Target: {fileID: 0}
+  walls: []
+  iterations: []
   romba: {fileID: 8081185858152830115, guid: 691126baa883ca944a02fc12ff3eee71, type: 3}
+  pathNum: 0
+  roombaPathPrefab: {fileID: 0}
+  resetPlayerMovementSpeed: 0
+  startIteration: 0
+  iterationPause:
+    m_PersistentCalls:
+      m_Calls: []
+  iterationStart:
+    m_PersistentCalls:
+      m_Calls: []
+  iterationGameOver:
+    m_PersistentCalls:
+      m_Calls: []

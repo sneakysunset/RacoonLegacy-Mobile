@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8e27938d-a98b-4209-a8c4-1b67efa57484}">
+		<property name="assetPath">
+			<value>MrKey_Retro-Gaming-Level-Ten-LMK.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>152.352</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1c7ea594-1d6a-483d-af57-4896bf749eef}</destination>
+		</relationship>
+	</object>
+</objects>

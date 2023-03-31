@@ -1,10 +1,12 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
-using UnityEditor.Playables;
+#endif
 using UnityEngine;
 using Lean.Touch;
+using UnityEngine.Events;
 using Unity.VisualScripting;
 
 public class RombaManager : MonoBehaviour
@@ -18,6 +20,9 @@ public class RombaManager : MonoBehaviour
     public RoombaPath roombaPathPrefab;
     public float resetPlayerMovementSpeed;
     /*[HideInInspector]*/ public bool startIteration;
+    public UnityEvent iterationPause;
+    public UnityEvent iterationStart;
+    public UnityEvent iterationGameOver;
     private void Start()
     {
         rombas = new List<Romba>();
@@ -33,9 +38,8 @@ public class RombaManager : MonoBehaviour
         rombas.Add(r);
         r.romb.paths = player.paths ;
         
-        print(r.romb.paths.Count + " " + player.paths.Count);
 
-
+       
         StartCoroutine(StartIteration(player, true));
     }
 
@@ -48,15 +52,19 @@ public class RombaManager : MonoBehaviour
         
         foreach (Romba r2 in rombas)
         {
-            r2.romb.isActivated = false;
-            r2.romb.gameObject.SetActive(false);
-            r2.romb.pathIndex = 0;
+            r2.romb.OnEndIteration();
         }
 
         player.target.transform.position = iterations[iterationIndex].destination;
         player.target.gameObject.SetActive(false);
         player.transform.right = iterations[iterationIndex].transform.position - player.transform.position;
         player.isActivated = false;
+        player.racoonCol.isTrigger = true;
+        for (int i = walls.Count - 1; i >= 0; i--)
+        {
+            Destroy(walls[i].gameObject);
+            walls.RemoveAt(i);
+        }
         while (player.transform.position != iterations[iterationIndex].transform.position)
         {
             player.transform.position = Vector3.MoveTowards(player.transform.position, iterations[iterationIndex].transform.position, resetPlayerMovementSpeed * Time.deltaTime);
@@ -64,27 +72,26 @@ public class RombaManager : MonoBehaviour
         }
 
         yield return new WaitUntil(() => player.transform.position == iterations[iterationIndex].transform.position);
+        iterationPause?.Invoke();
+        if (!newIteration) iterationGameOver?.Invoke();
         player.transform.position = iterations[iterationIndex].transform.position;
         player.target.gameObject.SetActive(true);
 
         foreach (Romba r2 in rombas)
         {
-            r2.romb.transform.position = r2.position;
-            r2.romb.transform.right = r2.direction;
-            r2.romb.gameObject.SetActive(true);
-        }
-        foreach(GameObject wall in walls)
-        {
-            wall.tag = "OldWall";
-            Destroy(wall.gameObject);
+            r2.romb.OnStartIteration(r2);
+
         }
         startIteration = false;
         player.transform.right = iterations[iterationIndex].destination - player.transform.position;
         yield return new WaitUntil(() => startIteration == true);
+        iterationStart?.Invoke();
         foreach (Romba r2 in rombas)
         {
             r2.romb.isActivated = true;
+            r2.romb.OnStartLoop(r2);
         }
+        player.racoonCol.isTrigger = false;
         walls.Clear();
 
         player.OnNewIteration();

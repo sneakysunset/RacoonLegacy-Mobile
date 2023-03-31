@@ -49,10 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  timer: 0
   isActivated: 1
   rMan: {fileID: 0}
   paths: []
   pathIndex: 0
+  pSys: {fileID: 3032356911219905566}
 --- !u!50 &8081185858152830118
 Rigidbody2D:
   serializedVersion: 4
@@ -73,7 +75,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &675846760567386229
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -89,7 +91,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.11
 --- !u!58 &8754670440845380856
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -105,7 +107,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 1.14
 --- !u!1001 &8866338918671981500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,6 +115,81 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8081185858152830114}
     m_Modifications:
+    - target: {fileID: 1589063588444305804, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1589063588444305804, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557474, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557474, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557474, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557474, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557474, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557474, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557474, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557474, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: 0.6467743
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557474, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 0.9864851
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557475, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557475, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557475, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845259785336557532, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7334767166397104810, guid: e2dcd1218d6d2d24a943b5405ac142a9,
         type: 3}
       propertyPath: m_RootOrder
@@ -173,11 +250,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Aspirateur
       objectReference: {fileID: 0}
+    - target: {fileID: 8467188673519270341, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2dcd1218d6d2d24a943b5405ac142a9, type: 3}
 --- !u!4 &2216267605866862870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7334767166397104810, guid: e2dcd1218d6d2d24a943b5405ac142a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8866338918671981500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3032356911219905566 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5845259785336557474, guid: e2dcd1218d6d2d24a943b5405ac142a9,
     type: 3}
   m_PrefabInstance: {fileID: 8866338918671981500}
   m_PrefabAsset: {fileID: 0}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{dd066eea-9681-49c1-837e-0bf437f07cb3}">
+		<property name="assetPath">
+			<value>Cartoon, Pop, Squeeze 03 SND35440 5.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.053062499999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1c7ea594-1d6a-483d-af57-4896bf749eef}</destination>
+		</relationship>
+	</object>
+</objects>

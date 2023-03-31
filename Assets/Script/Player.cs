@@ -5,7 +5,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance.VisualScripting;
 using UnityEngine.Events;
-
+using Lean.Touch;
 public struct Romba
 {
     public rombaBehaviour romb;
@@ -27,6 +27,11 @@ public class Player : MonoBehaviour
     [HideInInspector] public Animator anim;
     [HideInInspector] public List<path> paths;
     float timer;
+    [HideInInspector] public Collider2D racoonCol;
+    public float minTimerSound, maxTimerSound;
+    private float timerSound;
+    bool startGame;
+    public UnityEvent StartGameEvent;
     void Start()
     {
         paths = new List<path>();
@@ -42,10 +47,35 @@ public class Player : MonoBehaviour
         p.pathPoint = (Vector2)transform.position;
         p.time = 0;
         paths.Add(p);
+        racoonCol = GetComponent<Collider2D>();
+        timerSound = Random.Range(minTimerSound, maxTimerSound);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Level_Start");
+    }
+
+    private void OnEnable()
+    {
+        LeanTouch.OnFingerDown += LeanTouch_OnFingerDown;
+    }
+
+    private void LeanTouch_OnFingerDown(LeanFinger obj)
+    {
+        if (!startGame)
+        {
+            startGame = true;
+            isActivated = true;
+            rMan.startIteration = true;
+            StartGameEvent?.Invoke();
+        }
+    }
+
+    private void OnDisable()
+    {
+        LeanTouch.OnFingerDown -= LeanTouch_OnFingerDown;
     }
 
     public void OnNewIteration()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Level_Start");
         isActivated = true;
         transform.right = (target.position - transform.position).normalized;
         romba = new Romba();
@@ -65,9 +95,15 @@ public class Player : MonoBehaviour
         timer += Time.deltaTime;
         if (isActivated)
         {
+            timerSound -= Time.deltaTime;
             anim.Play("Walk", 0);
             rb.velocity = transform.right * speed * Time.deltaTime;
-            rb.angularVelocity = 0;
+            //rb.angularVelocity = 0;
+            if(timerSound <= 0)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Entity/Racoon_Noise");
+                timerSound = Random.Range(minTimerSound, maxTimerSound); ;
+            }
         }
         else
         {
@@ -94,7 +130,7 @@ public class Player : MonoBehaviour
             p.time = timer;
             paths.Add(p);
             timer = 0;
-            
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Wall/Bounce_Wall");
         }
         else if (collision.collider.CompareTag("Target"))
         {
@@ -104,11 +140,15 @@ public class Player : MonoBehaviour
             paths.Add(p);
             timer = 0;
             OnIterationOver?.Invoke();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Level_Victory");
         }
         else if (collision.collider.CompareTag("Romba"))
         {
             OnGameOver?.Invoke();
             StartCoroutine(rMan.StartIteration(this, false));
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Entity/Entity_Racoon_Collide");
+
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Level_Lose");
         }
     }
 }

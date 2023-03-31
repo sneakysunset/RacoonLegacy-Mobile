@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{685600dc-cfa9-450f-b0ce-ccf74a1806a2}">
+		<property name="assetPath">
+			<value>Fire, Misc, Fuse, Stop, Burn Out, Bomb, Dynamite 03 SND5823.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.2758645833333335</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1c7ea594-1d6a-483d-af57-4896bf749eef}</destination>
+		</relationship>
+	</object>
+</objects>
