@@ -26,6 +26,13 @@ public class RombaManager : MonoBehaviour
     private void Start()
     {
         rombas = new List<Romba>();
+        for (int i = 0; i < iterations.Count; i++)
+        {
+            RoombaPath temp = iterations[i];
+            int randomIndex = Random.Range(i, iterations.Count);
+            iterations[i] = iterations[randomIndex];
+            iterations[randomIndex] = temp;
+        }
     }
 
     public void AddNewRomba(Romba r, Player player)
@@ -65,6 +72,8 @@ public class RombaManager : MonoBehaviour
             Destroy(walls[i].gameObject);
             walls.RemoveAt(i);
         }
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Entity/Racoon_Noise");
         while (player.transform.position != iterations[iterationIndex].transform.position)
         {
             player.transform.position = Vector3.MoveTowards(player.transform.position, iterations[iterationIndex].transform.position, resetPlayerMovementSpeed * Time.deltaTime);
@@ -85,6 +94,7 @@ public class RombaManager : MonoBehaviour
         startIteration = false;
         player.transform.right = iterations[iterationIndex].destination - player.transform.position;
         yield return new WaitUntil(() => startIteration == true);
+        yield return new WaitForSeconds(.2f);
         iterationStart?.Invoke();
         foreach (Romba r2 in rombas)
         {
@@ -94,7 +104,7 @@ public class RombaManager : MonoBehaviour
         player.racoonCol.isTrigger = false;
         walls.Clear();
 
-        player.OnNewIteration();
+        player.OnNewIteration(newIteration);
     }
 
     private void OnEnable()

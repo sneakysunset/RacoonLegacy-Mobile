@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9006686621737465615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Entity/Entity_Collide
+  m_EditorClassIdentifier: 
+  Path: event:/Entity/Entity_Collide
+  Guid:
+    Data1: -65762679
+    Data2: 1108515988
+    Data3: -1178813548
+    Data4: 119649459
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 487
 --- !u!114 &-8166447904047821438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,6 +74,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1036
   Exists: 1
+--- !u!114 &-5902290074817790603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MainMenu_Music
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MainMenu_Music
+  Guid:
+    Data1: 76291119
+    Data2: 1288455180
+    Data3: 853368705
+    Data4: 1208451749
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 42710
 --- !u!114 &-5129790792137967208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +128,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 152
+--- !u!114 &-4848464881793338127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wall/Collider_Wall
+  m_EditorClassIdentifier: 
+  Path: event:/Wall/Collider_Wall
+  Guid:
+    Data1: 707882828
+    Data2: 1084013663
+    Data3: 851180178
+    Data4: -1060218808
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1062
 --- !u!114 &-2846467794348024558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +182,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1062
+--- !u!114 &-2650155661798071986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wall/Release_Wall
+  m_EditorClassIdentifier: 
+  Path: event:/Wall/Release_Wall
+  Guid:
+    Data1: -371500265
+    Data2: 1298559070
+    Data3: -421522022
+    Data4: -1215270227
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 31
+--- !u!114 &-2347221287188243470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Entity/Racoon_Hit
+  m_EditorClassIdentifier: 
+  Path: event:/Entity/Racoon_Hit
+  Guid:
+    Data1: 1620693718
+    Data2: 1113120096
+    Data3: -219658050
+    Data4: -1578425024
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 270
 --- !u!114 &-2165658194546874408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +263,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 50
+--- !u!114 &-1440687773833276263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Entity/Racoon_Sad
+  m_EditorClassIdentifier: 
+  Path: event:/Entity/Racoon_Sad
+  Guid:
+    Data1: -993618988
+    Data2: 1112506652
+    Data3: 766447513
+    Data4: -1142783500
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 850
 --- !u!114 &-1287611327165657298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +317,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2115
+--- !u!114 &-1187859933075144192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Level_Victory
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Level_Victory
+  Guid:
+    Data1: 596992169
+    Data2: 1144221781
+    Data3: -589202033
+    Data4: -1041209295
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1594
 --- !u!114 &-719388238568306961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +371,53 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 31
+--- !u!114 &-236157020055852952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wall/Bounce_Wall
+  m_EditorClassIdentifier: 
+  Path: event:/Wall/Bounce_Wall
+  Guid:
+    Data1: -2083807084
+    Data2: 1303304880
+    Data3: 1502406545
+    Data4: 1921997216
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 700
+--- !u!114 &-56729910091267322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Fmod_SemaineT_Mobile_Romba/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638158882954081984
+  FileSizes:
+  - Name: Desktop
+    Value: 1490
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,28 +431,79 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 1248678957935964768}
-  - {fileID: 2138779176521682659}
+  - {fileID: -56729910091267322}
+  - {fileID: 950345007012969332}
   EditorEvents:
-  - {fileID: -719388238568306961}
-  - {fileID: -8166447904047821438}
-  - {fileID: -2165658194546874408}
-  - {fileID: -2846467794348024558}
-  - {fileID: 6435896626786359958}
-  - {fileID: -5129790792137967208}
-  - {fileID: 4235635849960050571}
-  - {fileID: 5540697571260581663}
-  - {fileID: 6795851110920853602}
-  - {fileID: 3518290455174493557}
-  - {fileID: -1287611327165657298}
-  - {fileID: 1239514722732006476}
+  - {fileID: -2650155661798071986}
+  - {fileID: 1557937717776649317}
+  - {fileID: -4848464881793338127}
+  - {fileID: 7278197952413008923}
+  - {fileID: 1478512714096566272}
+  - {fileID: -9006686621737465615}
+  - {fileID: -236157020055852952}
+  - {fileID: 6525247691334794307}
+  - {fileID: 849176401768805985}
+  - {fileID: -1187859933075144192}
+  - {fileID: 1459532194355021509}
+  - {fileID: 6586241890961750302}
+  - {fileID: -1440687773833276263}
+  - {fileID: -2347221287188243470}
+  - {fileID: 4668369584894156604}
+  - {fileID: -5902290074817790603}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 2138779176521682659}
+  - {fileID: 950345007012969332}
   StringsBanks:
-  - {fileID: 1248678957935964768}
-  cacheTime: 638157854692339817
+  - {fileID: -56729910091267322}
+  cacheTime: 638158882954081984
   cacheVersion: 131591
+--- !u!114 &849176401768805985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Entity/Racoon_Happy
+  m_EditorClassIdentifier: 
+  Path: event:/Entity/Racoon_Happy
+  Guid:
+    Data1: -944252768
+    Data2: 1127896322
+    Data3: -1743587701
+    Data4: 1629913132
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &950345007012969332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Fmod_SemaineT_Mobile_Romba/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638158882954059032
+  FileSizes:
+  - Name: Desktop
+    Value: 2763520
+  Exists: 1
 --- !u!114 &1239514722732006476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +551,87 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1324
   Exists: 1
+--- !u!114 &1459532194355021509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Game_Music
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Game_Music
+  Guid:
+    Data1: 1340560067
+    Data2: 1121318415
+    Data3: 2037623941
+    Data4: -1940794734
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 151000
+--- !u!114 &1478512714096566272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Level_Start
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Level_Start
+  Guid:
+    Data1: 762094713
+    Data2: 1221104506
+    Data3: -735570276
+    Data4: -1087061230
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 152
+--- !u!114 &1557937717776649317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Entity/Racoon_Noise
+  m_EditorClassIdentifier: 
+  Path: event:/Entity/Racoon_Noise
+  Guid:
+    Data1: 430356792
+    Data2: 1096830665
+    Data3: -725549439
+    Data4: -571625818
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 850
 --- !u!114 &2138779176521682659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +726,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 712
   Exists: 1
+--- !u!114 &4668369584894156604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Entity/Entity_Racoon_Collide
+  m_EditorClassIdentifier: 
+  Path: event:/Entity/Entity_Racoon_Collide
+  Guid:
+    Data1: -1275048736
+    Data2: 1170908936
+    Data3: -1880480082
+    Data4: -1512730709
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3015
 --- !u!114 &5540697571260581663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +807,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 31
+--- !u!114 &6525247691334794307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Entity/Racoon_Dead
+  m_EditorClassIdentifier: 
+  Path: event:/Entity/Racoon_Dead
+  Guid:
+    Data1: -1679050081
+    Data2: 1320615604
+    Data3: 45747886
+    Data4: -149821785
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2400
+--- !u!114 &6586241890961750302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Level_Lose
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Level_Lose
+  Guid:
+    Data1: -2111575093
+    Data2: 1132542555
+    Data3: 89537727
+    Data4: -188654172
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1545
 --- !u!114 &6795851110920853602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,3 +888,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3008
+--- !u!114 &7278197952413008923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wall/Create_Wall
+  m_EditorClassIdentifier: 
+  Path: event:/Wall/Create_Wall
+  Guid:
+    Data1: 121923681
+    Data2: 1328477565
+    Data3: -546973006
+    Data4: -562328734
+  Banks:
+  - {fileID: 950345007012969332}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 31

@@ -54,7 +54,6 @@ public class Wall : MonoBehaviour
             eC = wall.GetComponent<EdgeCollider2D>();
             lR = wall.GetComponent<LineRenderer>();
             wB = wall.GetComponent<WallBehavious>();
-            lR.enabled = true;
             lR.positionCount = 2;
             pos1 = UtilsMouse.GetMousePosition(finger.StartScreenPosition, touchLayer);
             pos1.z = 0;
@@ -83,6 +82,12 @@ public class Wall : MonoBehaviour
             {
                 lR.SetPosition(1, pos2);
                 eCPoints[1] = pos2;
+
+                if (!lR.enabled)
+                {
+                    lR.enabled = true;
+                }
+
             }
 
 

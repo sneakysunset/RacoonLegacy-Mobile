@@ -23,6 +23,7 @@ public class rombaBehaviour : MonoBehaviour
     public ParticleSystem pSys;
     MeshRenderer meshR;
     Light lightR;
+    bool ascending = true;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,26 +36,55 @@ public class rombaBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(timer > paths[pathIndex + 1].time)
+        if (ascending)
         {
-            if(pathIndex >= paths.Count - 2)
+            if(timer > paths[pathIndex + 1].time)
             {
-                isActivated = false;
-                timer = 0;
-                pathIndex = 0;
+                if(pathIndex >= paths.Count - 2)
+                {
+                    ascending = false;
+                    timer = 0;
+                }
+                else
+                {
+                    pathIndex++;
+                    timer = 0;
+                    transform.right = paths[pathIndex].pathPoint - paths[pathIndex + 1].pathPoint;
+                }
+           
+            }
+        }
+        else
+        {
+            if (timer > paths[pathIndex + 1].time)
+            {
+                if (pathIndex == 0 )
+                {
+                    ascending = true;
+                    timer = 0;
+                }
+                else
+                {
+                    pathIndex--;
+                    timer = 0;
+                    transform.right = paths[pathIndex + 1].pathPoint - paths[pathIndex].pathPoint;
+                }
+
+            }
+        }
+
+
+        if (isActivated)
+        {
+            if(ascending)
+            {
+                transform.position = Vector2.Lerp(paths[pathIndex].pathPoint, paths[pathIndex + 1].pathPoint, timer / paths[pathIndex + 1].time);
             }
             else
             {
-                pathIndex++;
-                timer = 0;
-                transform.right = paths[pathIndex].pathPoint - paths[pathIndex + 1].pathPoint;
+                transform.position = Vector2.Lerp(paths[pathIndex + 1].pathPoint, paths[pathIndex].pathPoint, timer / paths[pathIndex + 1].time);
             }
-           
-        }
-        if(isActivated)
-        {
             timer += Time.deltaTime;
-            transform.position = Vector2.Lerp(paths[pathIndex].pathPoint, paths[pathIndex + 1].pathPoint, timer / paths[pathIndex + 1].time);
         }
         else
         {
@@ -68,6 +98,7 @@ public class rombaBehaviour : MonoBehaviour
     {
         StartCoroutine(disableRoomba());
         isActivated = false;
+        ascending = true;
         pathIndex = 0;
         timer = 0;
         pSys.Play();
